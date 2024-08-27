@@ -1,0 +1,24 @@
+const int ledPin = 13;      // Pin number for the LED
+const int buttonPin = 2;    // Pin number for the push button
+
+void setup() {
+  pinMode(ledPin, OUTPUT);     // Set LED pin as an output
+  pinMode(buttonPin, INPUT_PULLUP); // Set button pin as an input with pull-up resistor
+}
+
+void loop() {
+  // Read the state of the push button
+  int buttonState = digitalRead(buttonPin);
+
+  // Check if the push button is pressed
+  if (buttonState == LOW) {
+    // Button is pressed, blink the LED
+    digitalWrite(ledPin, HIGH);  // Turn the LED on
+    delay(500);                  // Wait for 500 milliseconds
+    digitalWrite(ledPin, LOW);   // Turn the LED off
+    delay(500);                  // Wait for 500 milliseconds
+  } else {
+    // Button is not pressed, turn off the LED
+    digitalWrite(ledPin, LOW);   // Ensure the LED is off
+  }
+}
